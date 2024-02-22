@@ -1,12 +1,31 @@
-import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -19,8 +38,12 @@ function Navbar() {
           <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1">
             <ul className="flex space-x-4 text-gray-800">
               <li>
-                <NavLink to="/" activeClassName="text-green-500" className="hover:text-green-500">
-                  Home
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  হোম
                 </NavLink>
               </li>
               {/* Add other menu items */}
@@ -65,7 +88,12 @@ function Navbar() {
         </div>
       </div>
       {/* Mobile Menu */}
-      <div className={`lg:hidden bg-gray-800 fixed inset-y-0 right-0 z-50 transition-transform duration-300 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div
+        ref={menuRef}
+        className={`lg:hidden bg-gray-800 fixed inset-y-0 right-0 z-50 transition-transform duration-300 transform ${
+          isOpen ? "translate-x-0 w-2/3" : "translate-x-full"
+        }`}
+      >
         <div className="flex justify-end pt-4 pr-4">
           <button
             onClick={toggleMenu}
@@ -88,11 +116,28 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <ul className="text-white text-lg mt-8">
-          <li className="py-4 border-b border-gray-600">
-            <NavLink to="/" activeClassName="text-green-500" className="block px-4 hover:text-green-500">Home</NavLink>
+        <ul className="text-white text-lg mt-8 ml-4">
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500 font-bold"
+              activeClassName="text-green-500"
+            >
+              হোম
+            </NavLink>
           </li>
           {/* Add other menu items */}
+          <li className="py-2">
+            <NavLink
+              to="/about"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500 font-bold"
+              activeClassName="text-green-500"
+            >
+              আমাদের সম্পর্কে
+            </NavLink>
+          </li>
         </ul>
       </div>
     </nav>
