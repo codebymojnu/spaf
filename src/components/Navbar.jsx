@@ -32,9 +32,11 @@ function Navbar() {
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 py-2">
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0">
-            <img src="/logo.png" alt="Logo" className="h-12" />
-          </div>
+          <NavLink to="/">
+            <div className="flex-shrink-0">
+              <img src="/logo.png" alt="Logo" className="h-12" />
+            </div>
+          </NavLink>
           <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1">
             <ul className="flex space-x-4 text-gray-800">
               <li>

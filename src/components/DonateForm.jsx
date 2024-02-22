@@ -1,8 +1,6 @@
-import React from 'react';
-
 function DonateForm() {
   return (
-    <div className="max-w-xl mx-auto mt-8 px-4">
+    <div className="max-w-4xl mx-auto mt-8 px-4">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4 flex flex-wrap items-center">
           <div className="w-full lg:w-2/4 lg:pr-2 mb-4 lg:mb-0">
