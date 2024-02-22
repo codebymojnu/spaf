@@ -1,9 +1,11 @@
-import Navbar from "./Navbar";
+import DonateForm from "./DonateForm";
+import HeroSection from "./HeroSection";
 
 export default function Home(){
     return (
         <>
-            <Navbar/>
+          <DonateForm/>
+          <HeroSection />
         </>
     )
 }
