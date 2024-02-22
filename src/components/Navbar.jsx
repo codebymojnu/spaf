@@ -39,7 +39,7 @@ function Navbar() {
           </NavLink>
           <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1">
             <ul className="flex space-x-4 text-gray-800">
-              <li>
+              <li className="py-2">
                 <NavLink
                   to="/"
                   onClick={closeMenu} // Close menu when NavLink is clicked
