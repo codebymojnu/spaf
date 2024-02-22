@@ -48,6 +48,78 @@ function Navbar() {
                   হোম
                 </NavLink>
               </li>
+              <li className="py-2">
+                <NavLink
+                  to="/about"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  আমাদের সম্পর্কে
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  আমাদের কার্যক্রম
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  সদস্যবৃন্দ
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  গ্যালারী
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  ভিডিও
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  সদস্য রেজিস্ট্রেশন
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  যোগাযোগ
+                </NavLink>
+              </li>
+              <li className="py-2">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  দান করুন
+                </NavLink>
+              </li>
               {/* Add other menu items */}
             </ul>
           </div>
@@ -130,14 +202,77 @@ function Navbar() {
             </NavLink>
           </li>
           {/* Add other menu items */}
-          <li className="py-2">
+
+          <li>
             <NavLink
               to="/about"
               onClick={closeMenu} // Close menu when NavLink is clicked
-              className="hover:text-green-500 font-bold"
-              activeClassName="text-green-500"
+              className="hover:text-green-500"
             >
               আমাদের সম্পর্কে
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              আমাদের কার্যক্রম
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              সদস্যবৃন্দ
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              গ্যালারী
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              ভিডিও
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              সদস্য রেজিস্ট্রেশন
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              যোগাযোগ
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              দান করুন
             </NavLink>
           </li>
         </ul>
