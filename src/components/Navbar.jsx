@@ -146,15 +146,13 @@ function Navbar() {
                 </svg>
               ) : (
                 <svg
-                  className="h-8 w-8 fill-current"
+                  className="mt-3 h-8 w-8 fill-current"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M4 6H20C20.5523 6 21 6.44772 21 7V17C21 17.5523 20.5523 18 20 18H4C3.44772 18 3 17.5523 3 17V7C3 6.44772 3.44772 6 4 6ZM20 4C21.1046 4 22 4.89543 22 6V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V6C2 4.89543 2.89543 4 4 4H20ZM6 8H18V10H6V8ZM6 12H18V14H6V12Z"
-                  />
+                  <rect y="15" width="24" height="2" rx="1" fill="#FF6347" />
+                  <rect y="5" width="24" height="2" rx="1" fill="#32CD32" />
+                  <rect y="10" width="24" height="2" rx="1" fill="#4169E1" />
                 </svg>
               )}
             </button>
