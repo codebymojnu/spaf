@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Step from "./Step";
 
 // Step components
 function Introduction() {
@@ -22,15 +23,64 @@ function Introduction() {
 }
 
 function PolicyAndIdeals() {
-  return <p>Policy and Ideals Content</p>;
+  const steps = [
+    "শিক্ষার্থীদের জন্য আর্থিক সহায়তা ও মাসিক বৃত্তি প্রদান, প্রতিষ্ঠিত না হওয়া পর্যন্ত তাদের তদারকি ও পরামর্শ প্রদান।",
+    "অসহায়দের জন্য স্বাস্থ্যসেবা ও চিকিৎসায় সহায়তা প্রদান।",
+    "সমাজের অবহেলিতদের জন্য পোশাকের ব্যবস্থা করা।",
+    "গ্রামীণ যোগাযোগ ব্যবস্থা উন্নত করতে রাস্তা সংস্কার করা।",
+    "অসহায়দের জন্য নিরাপদ ও স্বাস্থ্যকর বাসস্থান নিশ্চিত করা।",
+    "পরিবেশ দূষণ রোধে ময়লা পরিষ্কার ও ভারসাম্য রক্ষা করা।",
+    "বাল্যবিবাহ প্রতিরোধে সচেতনতা বৃদ্ধি ও আইনি পদক্ষেপ গ্রহণ করা।",
+    "দরিদ্রদের খাদ্য সরবরাহ করে জীবনযাত্রার মান উন্নত করা।",
+    "পরিবেশ সতেজ রাখতে ফল ও ঔষধি গাছ রোপণ করা।",
+    "নিয়মিত রক্তদান করে মানুষের জীবন বাঁচাতে সহায়তা করা।",
+  ];
+  return (
+    <div className="relative">
+      
+      <h2 className="text-2xl lg:text-4xl font-extrabold text-gray-800 leading-tight mb-4 mt-4 lg:mt-0">নীতি ও আদর্শ</h2>
+      <div className="h-1 w-60 bg-blue-500 mb-6"></div> 
+      <div className="ml-10">
+      
+      <ol className="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400 pl-6">
+        {steps.map((step, index) => (
+          <Step key={index} title={step} index={index} totalSteps={steps.length} />
+        ))}
+      </ol>
+      </div>
+    </div>
+  );
+
 }
+
 
 function GoalsAndObjectives() {
-  return <p>Goals and Objectives Content</p>;
-}
+  const steps = ["শিক্ষার্থীদের সহায়তা ও মাসিক বৃত্তি প্রদান, প্রতিষ্ঠিত না হওয়া পর্যন্ত তদারকি।",
+  "অসহায়দের স্বাস্থ্যসেবা ও চিকিৎসায় সহায়তা।",
+  "অবহেলিতদের পোশাকের ব্যবস্থা করা।",
+  "গ্রামীণ যোগাযোগ ব্যবস্থা উন্নত করতে রাস্তা সংস্কার।",
+  "অসহায়দের জন্য নিরাপদ বাসস্থান নিশ্চিত করা।",
+  "পরিবেশ দূষণ রোধে ময়লা পরিষ্কার ও ভারসাম্য রক্ষা।",
+  "বাল্যবিবাহ প্রতিরোধে সচেতনতা ও আইনি পদক্ষেপ।",
+  "দরিদ্রদের খাদ্য সরবরাহ করে জীবনযাত্রার মান উন্নত করা।",
+  "পরিবেশ সতেজ রাখতে ফল ও ঔষধি গাছ রোপণ।",
+  "নিয়মিত রক্তদান করে মানুষের জীবন বাঁচাতে সহায়তা।"];
+  return (
+    <div className="relative">
+      
+      <h2 className="text-2xl lg:text-4xl font-extrabold text-gray-800 leading-tight mb-4 mt-4 lg:mt-0">লক্ষ্য ও উদ্দেশ্য</h2>
+      <div className="h-1 w-60 bg-blue-500 mb-6"></div> 
+      <div className="ml-10">
+      
+      <ol className="relative text-gray-500 border-l border-gray-200 dark:border-gray-700 dark:text-gray-400 pl-6">
+        {steps.map((step, index) => (
+          <Step key={index} title={step} index={index} totalSteps={steps.length} />
+        ))}
+      </ol>
+      </div>
+    </div>
+  );
 
-function WorkingPrinciple() {
-  return <p>Goals and Objectives Content</p>;
 }
 
 // Define steps
@@ -38,7 +88,7 @@ const steps = [
   { title: "পরিচিতি", component: Introduction },
   { title: "নীতি ও আদর্শ", component: PolicyAndIdeals },
   { title: "লক্ষ্য ও উদ্দেশ্য", component: GoalsAndObjectives },
-  { title: "কার্যক্রম", component: WorkingPrinciple },
+ 
   // Add more steps as needed
 ];
 
