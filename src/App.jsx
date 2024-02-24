@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AboutPage from "./components/About/AboutPage";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import WorkingPrinciple from "./components/WorkingPrinciple";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/about" element={<AboutPage />} />
+        </Routes>
+        <Routes>
+          <Route path="/working-principle" element={<WorkingPrinciple />} />
         </Routes>
       </Router>
     </div>
