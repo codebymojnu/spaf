@@ -5,12 +5,7 @@ const galleryImages = [
   {
     id: 1,
     title: "বস্ত্র বিতরণ",
-    images: [
-      "/bostroBitoronImage/image2.jpg",
-      "/bostroBitoronImage/image3.jpg",
-      "image3.jpg",
-      "image4.jpg",
-    ],
+    images: ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
   },
   { id: 2, title: "রক্তদান কর্মসূচি", images: ["image1.jpg", "image2.jpg"] },
   {
