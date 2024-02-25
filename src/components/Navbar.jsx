@@ -221,7 +221,7 @@ function Navbar() {
           </li>
           <li className="py-2">
             <NavLink
-              to="/"
+              to="/members"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
