@@ -176,12 +176,30 @@ function WorkingPrinciple() {
         <div className="text-center mb-8 flex justify-between items-center">
           <h1 className="text-3xl font-bold">আমাদের কার্যক্রম</h1>
         </div>
-        <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-200">
+        <div className="lg:flex">
+
+           {/* Display steps vertically on larger screens */}
+           <div className="hidden lg:block lg:w-1/3 border-b lg:border-b-0 lg:border-r border-gray-200 lg:flex lg:flex-col lg:overflow-y-auto">
             {steps.map((step, index) => (
               <div
                 key={index}
                 className={`py-4 cursor-pointer ${
+                  activeStep === step
+                    ? "text-green-500 font-bold"
+                    : "text-gray-800 hover:bg-gray-100"
+                }`}
+                onClick={() => handleClick(step)}
+              >
+                {step.title}
+              </div>
+            ))}
+          </div>
+          {/* Display steps horizontally on mobile */}
+          <div className="lg:hidden overflow-x-auto mb-4">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className={`inline-block px-4 py-2 mr-2 ${
                   activeStep === step
                     ? "text-green-500 font-bold"
                     : "text-gray-800 hover:bg-gray-100"
@@ -197,10 +215,12 @@ function WorkingPrinciple() {
               <activeStep.component />
             </div>
           </div>
+         
         </div>
       </div>
     </div>
   );
 }
+
 
 export default WorkingPrinciple;

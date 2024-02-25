@@ -3,6 +3,7 @@ import AboutPage from "./components/About/AboutPage";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import WorkingPrinciple from "./components/WorkingPrinciple";
+import MembersPage from "./components/MembersPage";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/working-principle" element={<WorkingPrinciple />} />
+        </Routes>
+        <Routes>
+          <Route path="/members" element={<MembersPage />} />
         </Routes>
       </Router>
     </div>
