@@ -5,7 +5,12 @@ const galleryImages = [
   {
     id: 1,
     title: "বস্ত্র বিতরণ",
-    images: ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg"],
+    images: [
+      "/bostroBitoronImage/image2.jpg",
+      "/bostroBitoronImage/image3.jpg",
+      "image3.jpg",
+      "image4.jpg",
+    ],
   },
   { id: 2, title: "রক্তদান কর্মসূচি", images: ["image1.jpg", "image2.jpg"] },
   {
@@ -25,9 +30,21 @@ const galleryImages = [
 
 function Gallery() {
   const [activeGallery, setActiveGallery] = useState(galleryImages[0]);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (gallery) => {
     setActiveGallery(gallery);
+  };
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsModalOpen(false);
   };
 
   return (
@@ -79,7 +96,8 @@ function Gallery() {
                     key={index}
                     src={image}
                     alt={activeGallery.title}
-                    className="w-full h-auto"
+                    className="w-full h-auto cursor-pointer"
+                    onClick={() => openModal(image)}
                   />
                 ))}
               </div>
@@ -87,6 +105,28 @@ function Gallery() {
           </div>
         </div>
       </div>
+      {/* Modal Popup */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div
+            className="fixed inset-0 bg-black opacity-50"
+            onClick={closeModal}
+          ></div>
+          <div className="relative z-50">
+            <button
+              className="absolute top-0 right-0 m-4 text-white text-lg"
+              onClick={closeModal}
+            >
+              Close
+            </button>
+            <img
+              src={selectedImage}
+              alt="Modal"
+              className="max-w-full max-h-full"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
