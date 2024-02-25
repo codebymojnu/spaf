@@ -30,7 +30,7 @@ function App() {
           <Route path="/members" element={<MembersPage />} />
         </Routes>
         <Routes>
-          <Route path="/gallary" element={<Gallery />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Router>
     </div>
