@@ -1,13 +1,30 @@
+import { useEffect, useState } from "react";
 import Stepper from "./Stepper";
 
 function HeroSection() {
+  const [text, setText] = useState("");
+  const fullText = "Safe and Poverty Alleviation Foundation";
+
+  useEffect(() => {
+    let currentIndex = 0;
+
+    const intervalId = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setText(fullText.substring(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, 100); // Adjust the interval duration for typing speed
+  }, [fullText]);
+
   return (
     <div className="bg-gray-100 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse lg:flex-row items-center justify-between">
         {/* Company Information */}
         <div className="lg:w-1/2 lg:pr-12 mb-8 lg:mb-0">
-          <h2 className="text-2xl lg:text-4xl font-extrabold text-gray-800 leading-tight mb-4 mt-4 lg:mt-0">
-            Safe and Poverty Alleviation Foundation
+          <h2 className="text-2xl lg:text-3xl font-extrabold text-gray-800 leading-tight mb-4 mt-4 lg:mt-0">
+            {text}
           </h2>
           <div className="h-1 w-60 bg-blue-500 mb-6"></div>
           {/* Hero Text start */}
