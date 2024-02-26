@@ -22,7 +22,7 @@ function AdminDashboard() {
       navigate("/login");
     } else {
       // Fetch donations data from backend using JWT token
-      fetch(`http://localhost:3000/api/donations`, {
+      fetch(`https://spaf.vercel.app/api/donations27`, {
         method: "GET",
         headers: {
           Authorization: token,
@@ -45,7 +45,7 @@ function AdminDashboard() {
         });
 
       // Fetch messages data from backend using JWT token
-      fetch(`http://localhost:3000/api/messages`, {
+      fetch(`https://spaf27.vercel.app/api/messages`, {
         method: "GET",
         headers: {
           Authorization: token,
@@ -68,7 +68,7 @@ function AdminDashboard() {
         });
 
       // Fetch member requests data from backend using JWT token
-      fetch(`http://localhost:3000/api/member-requests`, {
+      fetch(`https://spaf27.vercel.app/api/member-requests`, {
         method: "GET",
         headers: {
           Authorization: token,
