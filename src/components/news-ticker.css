@@ -1,0 +1,32 @@
+/* Ticker styles */
+.news-ticker {
+  background-color: #f5f5f5;
+  overflow: hidden;
+  padding: 10px 0; /* Add padding for spacing */
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: ticker-animation 20s linear infinite;
+  padding-left: 25%; /* Add initial padding for smooth entry */
+}
+
+.ticker-text {
+  display: inline-block;
+  padding: 10px 20px; /* Increase padding for more spacing */
+  font-size: 16px;
+  color: #333;
+  background-color: #f7f7f7; /* Match background with the ticker container */
+  border-radius: 20px; /* Add border radius for a rounded look */
+  margin: 0 5px; /* Add some horizontal spacing */
+}
+
+@keyframes ticker-animation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
