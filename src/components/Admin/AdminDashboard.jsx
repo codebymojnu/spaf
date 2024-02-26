@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Loader"; // Import the Loader component
 import ContactMessageList from "./ContactMessageList";
 import DonationList from "./DonationList";
 import MemberRequestList from "./MemberRequestList";
 
 function AdminDashboard() {
+  const [donations, setDonations] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [memberRequests, setMemberRequests] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("donation");
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,66 +20,84 @@ function AdminDashboard() {
     if (!token) {
       // Redirect to login page if token is not available
       navigate("/login");
+    } else {
+      // Fetch donations data from backend using JWT token
+      fetch(`http://localhost:3000/api/donations`, {
+        method: "GET",
+        headers: {
+          Authorization: token,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch donations data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setDonations(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching donations:", error);
+          setError("Failed to fetch donations data. Please try again later.");
+          setIsLoading(false);
+        });
+
+      // Fetch messages data from backend using JWT token
+      fetch(`http://localhost:3000/api/messages`, {
+        method: "GET",
+        headers: {
+          Authorization: token,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch messages data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setMessages(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching messages:", error);
+          setError("Failed to fetch messages data. Please try again later.");
+          setIsLoading(false);
+        });
+
+      // Fetch member requests data from backend using JWT token
+      fetch(`http://localhost:3000/api/member-requests`, {
+        method: "GET",
+        headers: {
+          Authorization: token,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch member requests data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setMemberRequests(data);
+          setIsLoading(false);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching member requests:", error);
+          setError(
+            "Failed to fetch member requests data. Please try again later."
+          );
+          setIsLoading(false);
+        });
     }
   }, [navigate]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
   };
-
-  // Hard-coded data for testing
-  const donations = [
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      phoneEmail: "123-456-7890",
-      donationAmount: 100,
-      txId: "ABC123",
-    },
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      phoneEmail: "456-789-1230",
-      donationAmount: 200,
-      txId: "DEF456",
-    },
-  ];
-
-  const messages = [
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      name: "John Doe",
-      email: "john@example.com",
-      subject: "Query",
-      message: "Hello, I have a question.",
-    },
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      name: "Jane Doe",
-      email: "jane@example.com",
-      subject: "Feedback",
-      message: "Great website!",
-    },
-  ];
-
-  const memberRequests = [
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      name: "Alice",
-      phoneOrEmail: "alice@example.com",
-      address: "123 Main St",
-    },
-    {
-      date: "20-02-2023",
-      time: "7.15 PM",
-      name: "Bob",
-      phoneOrEmail: "bob@example.com",
-      address: "456 Elm St",
-    },
-  ];
 
   return (
     <div className="container mx-auto p-4">
@@ -104,14 +128,20 @@ function AdminDashboard() {
           মেম্বার রিকুয়েস্টের তালিকা
         </button>
       </div>
-      {selectedCategory === "donation" && (
-        <DonationList donations={donations} />
-      )}
-      {selectedCategory === "message" && (
-        <ContactMessageList messages={messages} />
-      )}
-      {selectedCategory === "request" && (
-        <MemberRequestList memberRequests={memberRequests} />
+      {isLoading ? ( // Render the Loader component while loading
+        <Loader />
+      ) : (
+        <>
+          {selectedCategory === "donation" && (
+            <DonationList donations={donations} />
+          )}
+          {selectedCategory === "message" && (
+            <ContactMessageList messages={messages} />
+          )}
+          {selectedCategory === "request" && (
+            <MemberRequestList memberRequests={memberRequests} />
+          )}
+        </>
       )}
     </div>
   );
