@@ -1,5 +1,4 @@
 // MembersPage.jsn
-import InvitationForm from "./InvitationForm";
 import MemberCard from "./MemberCard";
 
 // Sample data for members
@@ -349,8 +348,7 @@ const members = [
 function MembersPage() {
   return (
     <div className="container mx-auto px-4">
-      <InvitationForm />
-      <h2 className="text-3xl font-bold text-center mb-8">
+      <h2 className="mt-4 text-3xl font-bold text-center mb-8">
         আমাদের গর্বিত সদস্যবৃন্দ
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

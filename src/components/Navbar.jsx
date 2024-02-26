@@ -86,7 +86,7 @@ function Navbar() {
               </li>
               <li className="py-2">
                 <NavLink
-                  to="/"
+                  to="/videos"
                   onClick={closeMenu} // Close menu when NavLink is clicked
                   className="hover:text-green-500"
                 >
@@ -95,7 +95,7 @@ function Navbar() {
               </li>
               <li className="py-2">
                 <NavLink
-                  to="/"
+                  to="/invitation-form"
                   onClick={closeMenu} // Close menu when NavLink is clicked
                   className="hover:text-green-500"
                 >
@@ -104,7 +104,7 @@ function Navbar() {
               </li>
               <li className="py-2">
                 <NavLink
-                  to="/"
+                  to="/contact"
                   onClick={closeMenu} // Close menu when NavLink is clicked
                   className="hover:text-green-500"
                 >
@@ -113,7 +113,7 @@ function Navbar() {
               </li>
               <li className="py-2">
                 <NavLink
-                  to="/"
+                  to="/donate"
                   onClick={closeMenu} // Close menu when NavLink is clicked
                   className="hover:text-green-500"
                 >
@@ -239,7 +239,7 @@ function Navbar() {
           </li>
           <li className="py-2">
             <NavLink
-              to="/"
+              to="/videos"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
@@ -248,7 +248,7 @@ function Navbar() {
           </li>
           <li className="py-2">
             <NavLink
-              to="/"
+              to="/invitation-form"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
@@ -257,7 +257,7 @@ function Navbar() {
           </li>
           <li className="py-2">
             <NavLink
-              to="/"
+              to="/contact"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
@@ -266,7 +266,7 @@ function Navbar() {
           </li>
           <li className="py-2">
             <NavLink
-              to="/"
+              to="/donate"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
