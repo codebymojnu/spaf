@@ -1,10 +1,12 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import AboutPage from "./components/About/AboutPage";
+import AdminDashboard from "./components/Admin/AdminDashboard";
 import Contact from "./components/Contact";
 import DonateForm from "./components/DonateForm";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
 import InvitationForm from "./components/InvitationForm";
+import Login from "./components/Login";
 import MembersPage from "./components/MembersPage";
 import Navbar from "./components/Navbar";
 import Videos from "./components/Videos";
@@ -47,6 +49,12 @@ function App() {
         </Routes>
         <Routes>
           <Route path="/donate" element={<DonateForm />} />
+        </Routes>
+        <Routes>
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
+        <Routes>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>

@@ -120,6 +120,15 @@ function Navbar() {
                   দান করুন
                 </NavLink>
               </li>
+              <li className="py-2">
+                <NavLink
+                  to="/admin"
+                  onClick={closeMenu} // Close menu when NavLink is clicked
+                  className="hover:text-green-500"
+                >
+                  এডমিন
+                </NavLink>
+              </li>
               {/* Add other menu items */}
             </ul>
           </div>
@@ -271,6 +280,15 @@ function Navbar() {
               className="hover:text-green-500"
             >
               দান করুন
+            </NavLink>
+          </li>
+          <li className="py-2">
+            <NavLink
+              to="/admin"
+              onClick={closeMenu} // Close menu when NavLink is clicked
+              className="hover:text-green-500"
+            >
+              এডমিন
             </NavLink>
           </li>
         </ul>

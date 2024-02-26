@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function DonateForm() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     phoneEmail: "",
     donationAmount: "",
@@ -8,6 +11,10 @@ function DonateForm() {
   });
 
   const [showModal, setShowModal] = useState(false);
+  const [onSubmitting, setOnSubmitting] = useState(false);
+  const [onSuccess, setOnSuccess] = useState(false);
+  const [error, setError] = useState(null);
+  const [error1, setError1] = useState(null);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -18,20 +25,39 @@ function DonateForm() {
   };
 
   const handleDonate = () => {
-    setShowModal(true);
+    if (!formData.phoneEmail || !formData.donationAmount) {
+      setError1("দয়া করে সকল ফর্ম পূরণ করুন");
+      return;
+    } else {
+      setShowModal(true);
+      setError1(null);
+    }
   };
 
   const handleSubmit = () => {
-    // Send formData to the server
-    console.log("Sending data to server:", formData);
-    // Reset formData
-    setFormData({
-      phoneEmail: "",
-      donationAmount: "",
-      txId: "",
-    });
-    // Close the modal
-    setShowModal(false);
+    if (!formData.phoneEmail || !formData.donationAmount || !formData.txId) {
+      setError("Please fill in all fields.");
+      return;
+    }
+
+    setOnSubmitting(true);
+    // Simulate async operation
+    setTimeout(() => {
+      // Send formData to the server (Simulated success case)
+      console.log("Sending data to server:", formData);
+      // Reset formData
+      setFormData({
+        phoneEmail: "",
+        donationAmount: "",
+        txId: "",
+      });
+      // Close the modal
+      setShowModal(false);
+      // Redirect to the Thank You page
+      navigate("/thank-you");
+      setOnSuccess(true);
+      setOnSubmitting(false);
+    }, 2000); // Simulating a 2-second delay for the server response
   };
 
   return (
@@ -46,6 +72,7 @@ function DonateForm() {
               placeholder="Phone or Email"
               value={formData.phoneEmail}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="w-full lg:w-1/4 lg:pl-2 mb-4 lg:mb-0">
@@ -56,6 +83,7 @@ function DonateForm() {
               placeholder="Amount"
               value={formData.donationAmount}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="w-full lg:w-1/4 lg:pl-2 mb-4 lg:mb-0">
@@ -69,7 +97,7 @@ function DonateForm() {
           </div>
         </div>
       </form>
-
+      {error1 && <div className="text-center text-red-500">{error1}</div>}
       {/* Modal */}
       {showModal && (
         <div className="fixed z-10 inset-0 overflow-y-auto ">
@@ -111,9 +139,15 @@ function DonateForm() {
                     placeholder="Transaction ID"
                     value={formData.txId}
                     onChange={handleChange}
+                    required
                   />
                 </div>
-
+                {/* Display error message */}
+                {error && <div className="text-red-500">{error}</div>}
+                {/* Display submitting message */}
+                {onSubmitting && (
+                  <div className="text-blue-500">তথ্য জমা হচ্ছে...</div>
+                )}
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
                   onClick={handleSubmit}

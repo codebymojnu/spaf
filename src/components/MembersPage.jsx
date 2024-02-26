@@ -4,38 +4,39 @@ import MemberCard from "./MemberCard";
 // Sample data for members
 const members = [
   {
-    name: "মোঃমাসুদুর রহমান মাসউদ",
+    name: "মোঃ মাসুদুর রহমান মাসউদ",
     photo: "/memberImages/masud.jpg",
     title: "ফাউন্ডার",
     description: "Studied British common law at University of London",
   },
   {
     name: "মুজাহিদুল ইসলাম মুজাহিদ",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/muzahid.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
     description: "Description 2",
   },
   {
     name: "রিয়াজুল ইসলাম রুহী",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/ruhi.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
-    description: "Description 1",
+    description:
+      "প্রতিষ্ঠাতা ও পরিচালক, আল-মদিনা ক্যাডেট মাদ্রাসা বেরুবাড়ী, নাগেশ্বরী, কুড়িগ্রাম।",
   },
   {
     name: "অর্জুন সিংহ রায়",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/arjun.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
     description: "Description 2",
   },
   {
     name: "সাদিকুর ইসলাম সাদিক",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/sadik.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
     description: "Description 1",
   },
   {
     name: "মমিনুল ইসলাম মমিন",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/mominul.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
     description: "Description 2",
   },
