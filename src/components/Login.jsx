@@ -46,7 +46,7 @@ function Login() {
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <div className="flex justify-center mt-5">
           <span className="text-sm text-black-500 mb-5">
-            username: admin | password: 1234567890
+            সঠিক তথ্য দিয়ে লগইন করুন
           </span>
         </div>
         <form onSubmit={handleSubmit}>
