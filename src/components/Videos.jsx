@@ -131,9 +131,9 @@ function Videos() {
       {/* Modal Popup */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-50">
-          <div className="relative max-w-screen-lg max-h-screen-lg">
+          <div className="relative w-full max-w-2xl bg-white rounded-lg overflow-hidden shadow-lg">
             <button
-              className="absolute top-0 right-0 text-red-500 text-lg z-10"
+              className="absolute top-2 right-2 text-red-500 text-lg z-10"
               onClick={closeModal}
             >
               {/* Close Button SVG */}
@@ -154,8 +154,7 @@ function Videos() {
               </svg>
             </button>
             <iframe
-              width="560"
-              height="315"
+              className="w-full h-64 lg:h-96"
               src={`https://www.youtube.com/embed/${
                 selectedVideo.split("v=")[1]
               }`}
