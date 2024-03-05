@@ -42,7 +42,7 @@ const members = [
   },
   {
     name: "মোবাসসেরুল ইসলাম",
-    photo: "/memberImages/masud.jpg",
+    photo: "/memberImages/moba.jpg",
     title: "পরিচালনা পরিষদের সদস্য",
     description: "Studied British common law at University of London",
   },

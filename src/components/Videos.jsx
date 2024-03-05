@@ -7,11 +7,11 @@ const videos = [
     videos: [
       {
         videoTitle: "বেরুবাড়ী হাই স্কুলে বস্ত্র বিতরণ - ২০২৪",
-        videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        videoLink: "https://www.youtube.com/watch?v=VoWlOcOWf-8",
       },
       {
-        videoTitle: "Video Title Goes Here",
-        videoLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        videoTitle: "বস্ত্র বিতরণ - ২০২৩",
+        videoLink: "https://www.youtube.com/watch?v=VoWlOcOWf-8",
       },
     ],
   },
@@ -20,11 +20,11 @@ const videos = [
     videos: [
       {
         videoTitle: "বেরুবাড়ী বাজার মসজিদে ইফতার বিতরণ",
-        videoLink: "https://www.youtube.com/watch?v=0XQJ5MHUCRs",
+        videoLink: "https://www.youtube.com/watch?v=VoWlOcOWf-8",
       },
       {
         videoTitle: "মুয়ামারী মসজিদে ইফতার বিতরণ",
-        videoLink: "https://www.youtube.com/watch?v=0XQJ5MHUCRs",
+        videoLink: "https://www.youtube.com/watch?v=VoWlOcOWf-8",
       },
     ],
   },

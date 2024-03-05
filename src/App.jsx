@@ -3,12 +3,14 @@ import AboutPage from "./components/About/AboutPage";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import Contact from "./components/Contact";
 import DonateForm from "./components/DonateForm";
+import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Home from "./components/Home";
 import InvitationForm from "./components/InvitationForm";
 import Login from "./components/Login";
 import MembersPage from "./components/MembersPage";
 import Navbar from "./components/Navbar";
+import ThankYouPage from "./components/ThankYouPage";
 import Videos from "./components/Videos";
 import WorkingPrinciple from "./components/WorkingPrinciple";
 
@@ -56,6 +58,10 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Routes>
+          <Route path="/thank-you" element={<ThankYouPage />} />
+        </Routes>
+        <Footer />
       </Router>
     </div>
   );

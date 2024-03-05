@@ -12,7 +12,6 @@ function DonateForm() {
 
   const [showModal, setShowModal] = useState(false);
   const [onSubmitting, setOnSubmitting] = useState(false);
-  const [onSuccess, setOnSuccess] = useState(false);
   const [error, setError] = useState(null);
   const [error1, setError1] = useState(null);
 
@@ -26,7 +25,7 @@ function DonateForm() {
 
   const handleDonate = () => {
     if (!formData.phoneEmail || !formData.donationAmount) {
-      setError1("দয়া করে সকল ফর্ম পূরণ করুন");
+      setError1("Please fill in all fields.");
       return;
     } else {
       setShowModal(true);
@@ -34,30 +33,40 @@ function DonateForm() {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.phoneEmail || !formData.donationAmount || !formData.txId) {
       setError("Please fill in all fields.");
       return;
     }
 
     setOnSubmitting(true);
-    // Simulate async operation
-    setTimeout(() => {
-      // Send formData to the server (Simulated success case)
-      console.log("Sending data to server:", formData);
-      // Reset formData
+
+    try {
+      const response = await fetch("https://spaf0.vercel.app/api/donations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit data.");
+      }
+
       setFormData({
         phoneEmail: "",
         donationAmount: "",
         txId: "",
       });
-      // Close the modal
+
       setShowModal(false);
-      // Redirect to the Thank You page
       navigate("/thank-you");
-      setOnSuccess(true);
       setOnSubmitting(false);
-    }, 2000); // Simulating a 2-second delay for the server response
+    } catch (error) {
+      setError("Failed to submit data. Please try again later.");
+      setOnSubmitting(false);
+    }
   };
 
   return (
@@ -122,15 +131,11 @@ function DonateForm() {
                   </p>
                 </div>
                 <p className="mt-2 text-blue-500">
-                  নিচের বিকাশ/নগদ একাউন্টে টাকা পাঠিয়ে Transaction ID দিন।
+                  Donate to <strong>01788262433</strong> (BKash/Nagad)
                 </p>
-                <p className="mt-4">
-                  <strong>BKash:</strong> 017XXXXXXXX,{" "}
-                  <span className="block lg:inline-block">
-                    <strong>Nagad:</strong> 017XXXXXXXX
-                  </span>
+                <p className="mt-2 text-blue-500">
+                  Please provide Transaction ID below.
                 </p>
-
                 <div className="mt-4 mb-4">
                   <input
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -146,13 +151,13 @@ function DonateForm() {
                 {error && <div className="text-red-500">{error}</div>}
                 {/* Display submitting message */}
                 {onSubmitting && (
-                  <div className="text-blue-500">তথ্য জমা হচ্ছে...</div>
+                  <div className="text-blue-500">Submitting...</div>
                 )}
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-4"
                   onClick={handleSubmit}
                 >
-                  দান করুন
+                  Donate
                 </button>
               </div>
             </div>
