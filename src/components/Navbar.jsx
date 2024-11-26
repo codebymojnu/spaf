@@ -120,13 +120,13 @@ function Navbar() {
                   দান করুন
                 </NavLink>
               </li>
-              <li className="py-2">
+              <li className="py-2 font-bold">
                 <NavLink
                   to="/admin"
                   onClick={closeMenu} // Close menu when NavLink is clicked
                   className="hover:text-green-500"
                 >
-                  এডমিন
+                  Admin Login
                 </NavLink>
               </li>
               {/* Add other menu items */}
@@ -171,9 +171,8 @@ function Navbar() {
       {/* Mobile Menu */}
       <div
         ref={menuRef}
-        className={`lg:hidden bg-gray-800 fixed inset-y-0 right-0 z-50 transition-transform duration-300 transform ${
-          isOpen ? "translate-x-0 w-2/3" : "translate-x-full"
-        }`}
+        className={`lg:hidden bg-gray-800 fixed inset-y-0 right-0 z-50 transition-transform duration-300 transform ${isOpen ? "translate-x-0 w-2/3" : "translate-x-full"
+          }`}
       >
         <div className="flex justify-end pt-4 pr-4">
           <button
@@ -282,13 +281,13 @@ function Navbar() {
               দান করুন
             </NavLink>
           </li>
-          <li className="py-2">
+          <li className="py-2 font-bold">
             <NavLink
               to="/admin"
               onClick={closeMenu} // Close menu when NavLink is clicked
               className="hover:text-green-500"
             >
-              এডমিন
+              Admin Login
             </NavLink>
           </li>
         </ul>

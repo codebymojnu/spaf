@@ -45,9 +45,7 @@ function Login() {
       <div className="bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold mb-4">Login</h2>
         <div className="flex justify-center mt-5">
-          <span className="text-sm text-black-500 mb-5">
-            সঠিক তথ্য দিয়ে লগইন করুন
-          </span>
+          <p className="text-xs text-center mb-2">For testing: User Name: <span className="text-red-500 font-bold">asha</span> Password: <span className="text-red-500 font-bold">asha+mojnu</span></p>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
